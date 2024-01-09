@@ -1,5 +1,7 @@
-## Interface: 90100
+## Interface: 100200
 ## Title: |cFFFFFF00<Skagglsound>|r |cff69ccf0Skagglsok|r
+## Author: Circus CEO
+## Version: 1.0
 
 libs\LibStub\LibStub.lua
 libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
