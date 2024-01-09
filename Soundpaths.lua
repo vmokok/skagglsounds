@@ -1,53 +1,89 @@
 local LSM = LibStub("LibSharedMedia-3.0")
 
--- -----
--- BACKGROUND
--- -----
+local soundsPath = "Interface\\Addons\\SharedMedia_Skagglsound\\sounds\\"
+local colors = {
+    green = "00FF00"
+}
+local titlePrefix = "Скагглсок: "
+local debug = false
+local sounds = {
+    {
+        title = "Ответ неверный!",
+        fileName = "wrong",
+        color = colors.green
+    },
+    {
+        title = "Бэкап",
+        fileName = "backup",
+        color = colors.green
+    },
+    {
+        title = "Вы че угораете?",
+        fileName = "are-you-fucking-rofling",
+        color = colors.green
+    },
+    {
+        title = "Вы че прикалываетесь?",
+        fileName = "prikalivaetes",
+        color = colors.green
+    },
+    {
+        title = "Блин",
+        fileName = "blin2",
+        color = colors.green
+    },
+    {
+        title = "Метка",
+        fileName = "mark",
+        color = colors.green
+    },
+    {
+        title = "Стоят дрочат",
+        fileName = "masturbation",
+        color = colors.green
+    },
+    {
+        title = "Пиздец",
+        fileName = "prostopizdec",
+        color = colors.green
+    },
+    {
+        title = "Беги!",
+        fileName = "run_better",
+        color = colors.green
+    },
+    {
+        title = "Съебали!",
+        fileName = "syebali",
+        color = colors.green
+    },
+    {
+        title = "Съебали блять!!",
+        fileName = "syebaliblyat",
+        color = colors.green
+    },
+    {
+        title = "Съебали нахуй!!!",
+        fileName = "syebalinaxyu",
+        color = colors.green
+    },
+    {
+        title = "Трэш",
+        fileName = "trash",
+        color = colors.green
+    },
+    {
+        title = "Не там стоишь",
+        fileName = "xylevistoite",
+        color = colors.green
+    },
+}
 
--- -----
---  BORDER
--- ----
-
--- -----
---   FONT
--- -----
-
--- -----
---   SOUND
--- -----
-LSM:Register("sound", "|cFF00FF00Skagglsok: Rocalo-Drum|r", [[Interface\Addons\SharedMedia_Skagglsound\sounds\drum.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: Rocalo-wrong|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\wrong.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: Backup please!|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\backup-naxyu.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: Are you laughing at me?!|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\are-you-fucking-rofling.ogg]])
-
-LSM:Register("sound", "|cFF00FF00Skagglsok: blin2|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\blin2.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: konchene|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\konchene.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: mark|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\mark.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: masturbation|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\masturbation.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: prikalivaetes|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\prikalivaetes.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: prostopizdec|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\prostopizdec.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: run_better|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\run_better.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: syebali|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\syebali.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: syebaliblyat|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\syebaliblyat.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: syebalinaxyu|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\syebalinaxyu.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: trash|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\trash.ogg]])
-LSM:Register("sound", "|cFF00FF00Skagglsok: xylevistoite|r",
-    [[Interface\Addons\SharedMedia_Skagglsound\sounds\xylevistoite.ogg]])
-
--- -----
---   STATUSBAR
--- -----
+for _, sound in ipairs(sounds) do
+    local result = LSM:Register(
+        "sound",
+        "|cFF" .. sound.color .. titlePrefix .. sound.title .. "|r",
+        soundsPath .. sound.fileName .. ".ogg"
+    )
+    if debug and not result then print("some shit") end
+end
